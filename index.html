@@ -150,7 +150,7 @@
             <td colspan="2">Longitude: ' + (feature.properties['LONG'] !== null ? autolinker.link(String(feature.properties['LONG']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
         </tr>\
         <tr>\
-            <td colspan="2">Report: ' + (feature.properties['Report'] !== null ? '<a href="reports/' + feature.properties['Report'] + '" target="_blank"> View PDF</a>' : 'No report available') + '</td>\
+            <td colspan="2">Report: ' + (feature.properties['Report'] !== null ? '<a href="reports/' + feature.properties['PDF'] + '" target="_blank"> View PDF</a>' : 'No report available') + '</td>\
         </tr>\
     </table>';
 
