@@ -1189,6 +1189,48 @@
         map.on("layerremove", function(){
             resetLabels([layer_unitsPDF_1]);
         });
+            var testFeature = {
+                "type": "Feature",
+                "properties": {
+                    "JOBNO": "Test",
+                    "type": "Test",
+                    "NO": "Test",
+                    "LAT": "Test",
+                    "LONG": "Test"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-83.742, 42.281]
+                }
+            };
+            var testMarker = L.circleMarker(
+                [testFeature.geometry.coordinates[1], testFeature.geometry.coordinates[0]],
+                {
+                    radius: 6.0,
+                    color: 'rgba(35,35,35,1.0)',
+                    weight: 1,
+                    fillColor: 'red',
+                    fillOpacity: 1,
+                    pane: 'pane_unitsPDF_1'
+                }
+            );
+            var popupContent = `
+                <table>
+                    <tr><td><b>Job Number:</b> ${testFeature.properties.JOBNO}</td></tr>
+                    <tr><td>Type: ${testFeature.properties.type}</td></tr>
+                    <tr><td>Number: ${testFeature.properties.NO}</td></tr>
+                    <tr><td>Latitude: ${testFeature.properties.LAT}</td></tr>
+                    <tr><td>Longitude: ${testFeature.properties.LONG}</td></tr>
+                    <tr><td><a href="pdfs/test.pdf" target="_blank">📄 View PDF</a></td></tr>
+                </table>
+            `;
+            testMarker.bindPopup(popupContent);
+            testMarker.bindTooltip(
+                '<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: Ebrima, sans-serif;">Test</div>',
+                {permanent: true, offset: [0, -16], className: 'css_unitsPDF_1'}
+            );
+            testMarker.addTo(map);
+
         </script>        
     </body>
 </html>
